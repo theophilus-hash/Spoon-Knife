@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: repro 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: repro
+  template:
+    metadata:
+      labels:
+        app: repro 
+    spec:
+      containers:
+        - name: repro 
+          image: sawyerracr.azurecr.io/repro
+          ports:
+          - containerPort: 3000
